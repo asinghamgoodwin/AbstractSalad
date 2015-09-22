@@ -1,0 +1,31 @@
+<!--template for html-->
+
+<html>
+    <head>
+    </head>
+    <body>
+        <p>Welcome to the Abstract Salad Factory! </p>
+        {% for ing in ingredient_list %}
+            <p> {{ing}} </p>
+        {% endfor %}
+
+        <form action="" method="post" name="hello">
+            {{ form.hidden_tag() }}
+            {{ form.name(size=80) }}<br>
+            {{ form.ingredient(size=80) }}
+SORRY IM BROKE
+        </form>
+        <form>
+            Your name:
+            <input type="text" name="name">
+            <select name="category">
+                {% for category in categories %}
+                <option value={{category}}>{{category}}</option>
+                {% endfor %}
+            </select>
+            Ingredient:
+            <input type="text" name="ingredient">
+            <button>GO DO</button>
+        </form>            
+    </body>
+</html>

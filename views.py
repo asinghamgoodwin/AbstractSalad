@@ -5,6 +5,8 @@ from flask.ext.wtf import Form
 from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, Optional
 from models import *
+import saladMath as sm
+from contextlib import closing
 
 app = Flask(__name__)
 # this is referencing our config.py file, and weirdly lets us get away with not using a secret key
@@ -36,8 +38,9 @@ class SaladForm(Form):
 def index():
     # opening a connection to our database (get_db comes from models)
     db = get_db()
-    with db:
-        cur = db.cursor()
+    # with db:
+    with closing(db.cursor()) as cur:
+        # cur = db.cursor()
         form = SaladForm()
 
         ### this section is to get the categories from our category table to use as drop-down choices
@@ -47,24 +50,45 @@ def index():
         # these come as unicode strings, and we can .encode('utf8') to make them pretty, normal strings
         category_tuples = [(x[0].encode('utf8'),x[0].encode('utf8')) for x in categoryList]
         form.add_category_choices(category_tuples)
+    # db.close()
+
+    ### this section is for pretty printing
+    # db = get_db()
+    # with db:
+    # with closing(db.cursor()) as cur:
+        # cur = db.cursor()
 
         if form.validate_on_submit():
             print "I validated on submit"
             cur.execute('insert into Ingredient (person, category, ingredient) values (?, ?, ?)', 
                         [form.name.data, form.category.data, form.ingredient.data])
-            
             # print categoryList
             # print form.name.data
             # print form.category.data
         else:
             print "I didn't validate"
     # could we also use close_connection() ?
+        db.commit()
+        cur.execute('SELECT person, category, ingredient FROM Ingredient')            
+        IngredientTableTuples = cur.fetchall()
+        categories = [x[0] for x in category_tuples]
+        categories_for_printing = {}
+        for cat in categories:
+            categories_for_printing[cat] = [(x[2].encode('utf8'), x[0].encode('utf8')) for x in IngredientTableTuples if x[1] == cat]
+            
+        #print categories_for_printing
     db.close()
 
+    ourRatios = sm.calculateRatios(categories_for_printing)
+    warningsList = sm.warnAboutRatios(sm.perfectSaladRatios, ourRatios)
+    warningsString = ", ".join(warningsList)
+    print warningsString
     # pretend_ingredients = ["cats", "spinace", "avodabo", "carobs"]
     # pretend_categories = ["greebs", "vebebbggeez", "FROOBs"]
     return render_template('index.html',
-            form=form)
+            form=form,
+            categoryDict = categories_for_printing,
+            warnings = warningsString)
             # ingredient_list=pretend_ingredients,
             # categories=pretend_categories)
 

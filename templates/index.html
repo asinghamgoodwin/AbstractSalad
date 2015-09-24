@@ -36,7 +36,34 @@
             Ingredient:
             <input type="text" name="ingredient">
             <button>GO DO</button>
-        </form>             -->
-        <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), and Weston Elliott Vial (S2'15)</div>
+        </form>            -->
+        <br>
+        {% if warnings %}
+            <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
+        {% endif %}
+
+        <br>
+        <br>
+        <table>
+        <!--     <tr>
+        {% for cat in categoryDict.keys() %}
+            <th><strong> {{cat}} </strong></th>
+        {% endfor %}
+            </tr> -->
+
+        <tr>
+        {% for cat in categoryDict.keys() %}  
+            <td valign="top"><strong> {{cat}} </strong>
+            <br>
+            {% for pair in categoryDict[cat] %}
+            {{pair[0]}} - <em>{{pair[1]}}</em>
+            <br>
+            {% endfor %}   
+            </th> 
+        {% endfor %}
+        </tr>    
+
+
+        <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div>
     </body>
 </html>

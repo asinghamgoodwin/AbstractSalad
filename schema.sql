@@ -2,24 +2,24 @@
 
 create table Ingredient (
     ingredient_id  integer primary key autoincrement not null,
-    name    text,
+    ingredient    text,
     person  text,
-    category_id     integer,
-    salad_id        integer
+    category     text,
+    salad        text
 );
 
 create table Category(
-    category_id integer primary key autoincrement not null,
-    name    text
+    id integer primary key autoincrement not null,
+    category    text
 );
 
 
 create table Salad(
-    salad_id integer primary key autoincrement not null,
-    name    text
+    id integer primary key autoincrement not null,
+    salad    text
 );
 
-insert into Category (name) values
+insert into Category (category) values
     ('Greens'),
     ('Veggies'),
     ('Protein'),

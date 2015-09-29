@@ -1,5 +1,5 @@
 """this will render html templates depending on what url we go to"""
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import sqlite3
 from flask.ext.wtf import Form
 from wtforms import StringField, SelectField
@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired, Optional
 from models import *
 import saladMath as sm
 from contextlib import closing
+import json
 
 app = Flask(__name__)
 # this is referencing our config.py file, and weirdly lets us get away with not using a secret key
@@ -32,8 +33,8 @@ class SaladForm(Form):
     def add_category_choices(self, category_tuples):
         self.category.choices = category_tuples
 
-@app.route('/')
 # the GET is important to display the form and stuff, and the POST lets us grab the form input
+@app.route('/', methods = ["GET", "POST"])
 @app.route('/index', methods = ["GET", "POST"])
 def index():
     # opening a connection to our database (get_db comes from models)
@@ -92,9 +93,29 @@ def index():
             # ingredient_list=pretend_ingredients,
             # categories=pretend_categories)
 
+@app.route("/add", methods=['POST'])
+def add():
+    db = get_db()
+    with closing(db.cursor()) as cur:
+        cur.execute('insert into Ingredient (person, category, ingredient) values (?, ?, ?)', 
+                    [request.form['name'], request.form['category'], request.form['ingredient']])
+        db.commit()
+    db.close()
+    return "" 
 
-# def get_categories():
-#     pass
+@app.route("/salad")
+def salad():
+    db = get_db()
+    with closing(db.cursor()) as cur:
+        cur.execute('SELECT person, category, ingredient FROM Ingredient')            
+        IngredientTableTuples = cur.fetchall()
+        ingredientDict = {"Ingredients": []}
+        for name, category, ingredient in IngredientTableTuples:
+            ingredientDict["Ingredients"].append({"name": name, "category": category, "ingredient": ingredient})
+    db.close()
+    return json.dumps(ingredientDict)
+
+# fetch('/salad').then(function(resp) { resp.json().then(function() {console.log(arguments); }); })
 
 
 # this is what makes our app start up when we run python views.py

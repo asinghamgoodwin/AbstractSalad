@@ -7,6 +7,8 @@ def calculateRatios(category_dict):
 	for category in category_dict.keys():
 		ourSaladRatios[category]=len(category_dict[category])
 	total = sum(ourSaladRatios.values())
+        if total == 0:
+            return ourSaladRatios
 	for category in category_dict.keys():
 		ourSaladRatios[category] = ourSaladRatios[category]/float(total)
 	return ourSaladRatios

@@ -1,0 +1,28 @@
+{
+  "name": "abstract-salad",
+  "version": "0.0.1",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --colors --progress",
+    "watch": "./node_modules/.bin/webpack-dev-server --colors --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alliejones/AbstractSalad.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alliejones/AbstractSalad/issues"
+  },
+  "homepage": "https://github.com/alliejones/AbstractSalad#readme",
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "eslint-plugin-react": "^3.5.0",
+    "react": "^0.13.3",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}

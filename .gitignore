@@ -1,2 +1,4 @@
 flask/*
 *.pyc
+node_modules
+

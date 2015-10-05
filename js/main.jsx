@@ -57,8 +57,9 @@ var Ingredients = React.createClass({
       <label for='name'>Name</label>
       <input name="name" value={this.state.value} onChange={this.handleChange.bind(null, 'name')} style={{margin:'5px'}}/>
       <select name="category" value={this.state.value} onChange={this.handleChange.bind(null, 'category')} style={{margin:'5px'}}>
-      {Object.keys(ingredients).map(function(category) {
-       return <option value={category}> {category} </option>;
+      
+      {this.state.categories.map(function(category) {
+       return <option value={category.id}> {category.name} </option>;
       })}
       </select>
       <label for='ingredient'>Ingredient</label>
@@ -94,6 +95,11 @@ var Ingredients = React.createClass({
   },
   componentDidMount: function(){
     var self = this;
+    server.getCategories().then(function(categories){
+      self.setState(
+        {categories}
+      );
+    });
     server.getIngredients().then(function(ingredients){
       self.setState(
         {'ingredients': ingredients}
@@ -106,7 +112,7 @@ var Ingredients = React.createClass({
     this.setState({[field]: e.target.value});
   },
   getInitialState: function(){
-    return {ingredients: [], name: '', category: 'Greens', ingredient: ''};
+    return {ingredients: [], name: '', categories: [], category: 'Greens', ingredient: ''};
   }
 });
 

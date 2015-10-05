@@ -6,6 +6,13 @@ module.exports = {
             });
         });
     },
+    getCategories: function() {
+        return fetch('/getCategories').then(function(resp) {
+            return resp.json().then(function (data) {
+                return data;
+            });
+        });
+    },
 
     addIngredient: function(data) {
         var form = new FormData();

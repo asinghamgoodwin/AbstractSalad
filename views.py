@@ -4,7 +4,6 @@ import sqlite3
 from flask.ext.wtf import Form
 from wtforms import StringField, SelectField
 from wtforms.validators import DataRequired, Optional
-from models import *
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
@@ -23,6 +22,7 @@ migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
+from models import *
 
 ## class SaladForm(Form):
 ##     name = StringField('name', validators=[DataRequired()])

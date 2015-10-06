@@ -2,7 +2,7 @@ module.exports = {
     entry: './js/main.jsx',
     devtool: 'eval-source-map',
     output: {
-        filename: 'abstract-salad.js',
+        filename: 'static/abstract-salad.js',
         publicPath: 'http://localhost:8080/assets'
     },
     module: {

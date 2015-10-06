@@ -14,7 +14,9 @@ import json
 app = Flask(__name__)
 # this is referencing our config.py file, and weirdly lets us get away with not using a secret key
 app.config.from_object("config")
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/salad'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'postgresql://localhost/salad')
+
+#'postgresql://localhost/salad'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

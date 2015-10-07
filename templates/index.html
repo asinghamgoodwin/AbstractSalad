@@ -2,6 +2,10 @@
 
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700|EB+Garamond' rel='stylesheet' type='text/css'>
+        {% assets "scss_all" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}"></link>
+        {% endassets %}
     </head>
     <style type ="text/css" >
     .footer{ 
@@ -12,19 +16,23 @@
     }  
     </style>
     <body>
-        <p>Welcome to the Abstract Salad Factory! </p>
-        <br>
+        <div class='container'>
+        <h1>Welcome to the Abstract Salad Factory! </h1>
+
         <!-- {% for ing in ingredient_list %}
             <p> {{ing}} </p>
         {% endfor %} -->
 
-        <form action="" method="post">
+        <!-- <form action="" method="post">
             {{ form.hidden_tag() }}
             Name: {{ form.name(size=20) }}
             Category: {{form.category}}
             Ingredient: {{ form.ingredient(size=40) }}
             <input type = "submit" value = "Click Me!">
         </form>
+ -->
+
+
         <!-- <form>
             Your name:
             <input type="text" name="name">
@@ -37,33 +45,44 @@
             <input type="text" name="ingredient">
             <button>GO DO</button>
         </form>            -->
-        <br>
+        
         {% if warnings %}
             <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
         {% endif %}
 
         <br>
         <br>
-        <table>
+        <div class='salad_container'>
         <!--     <tr>
         {% for cat in categoryDict.keys() %}
             <th><strong> {{cat}} </strong></th>
         {% endfor %}
             </tr> -->
+            
+            {% for cat in categoryDict.keys() %}  
+            <div class='salad_block'> 
+                <h2> {{cat}} </h2>
+                    <ul>
+                    {% for pair in categoryDict[cat] %}
+                    <li>
+                        {{pair[0]}} (<em>{{pair[1]}}</em>)
+                    </li>
+                    {% endfor %}
+                    </ul>
+                   <!-- <button> + </button> -->
+                   <form action="" method="post">
+                        {{ form.hidden_tag() }}
+                        {{ form.name(size=20) }}
+                        {{form.category}}
+                        {{ form.ingredient(size=40) }}
+                    <input type = "submit" value = "Click Me!">
+        </form>
+            </div>
+            {% endfor %}
+            
+        </div>
 
-        <tr>
-        {% for cat in categoryDict.keys() %}  
-            <td valign="top"><strong> {{cat}} </strong>
-            <br>
-            {% for pair in categoryDict[cat] %}
-            {{pair[0]}} - <em>{{pair[1]}}</em>
-            <br>
-            {% endfor %}   
-            </th> 
-        {% endfor %}
-        </tr>    
-
-
-        <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div>
+       <!--  <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div> -->
+   </div>
     </body>
 </html>

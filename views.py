@@ -7,10 +7,18 @@ from wtforms.validators import DataRequired, Optional
 from models import *
 import saladMath as sm
 from contextlib import closing
+#for the css compiler
+from flask.ext.assets import Environment, Bundle
 
 app = Flask(__name__)
 # this is referencing our config.py file, and weirdly lets us get away with not using a secret key
 app.config.from_object("config")
+
+#This is a sass compiler for styling
+assets = Environment(app)
+scss = Bundle('sass/main.scss', filters='pyscss', output='css/all.css')
+assets.register('scss_all', scss)
+
 
 class SaladForm(Form):
     ### for some reason this didn't work up here so we did the work down in index() where we'd

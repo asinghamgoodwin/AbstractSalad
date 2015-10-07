@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box; }
+
+  body {
+    background: url('/static/img/background_salad.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+      border: 5px #1C0F0F solid; }
+
+      h1 {
+        font-size: 80px;
+        text-align: center;
+        color: #F8FFDB;
+        text-shadow: 3px 3px #1C0F0F;
+        margin: 0;
+        padding: 0; }
+
+        .salad_container {
+          width: 60%;
+          padding: 0 auto;
+          margin: 0 auto; }
+
+          .salad_block {
+            display: inline-block;
+            border: solid #1C0F0F 4px;
+            border-radius: 10px;
+            background-color: rgba(244, 245, 193, 0.9);
+            width: 100%;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: center;
+            font-size: 30px;
+            -webkit-transition: 2s;
+            transition: 2s; }
+            .salad_block h2 {
+              margin: 0;
+              background-color: rgba(20, 85, 43, 0.6);
+              border-radius: 5px;
+              font-size: 80px;
+              color: #F4FEC1;
+              font-family: 'Amatic SC', cursive;
+              text-shadow: 3px 3px #1C0F0F; }
+              .salad_block ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                color: #1C0F0F; }
+                .salad_block button {
+                  margin-top: 5px;
+                  padding: 5px;
+                  width: 60%;
+                  border-style: none;
+                  background-color: transparent;
+                  color: #1C0F0F;
+                  font-size: 30px; }
+
+.footer {
+  position: relative; }

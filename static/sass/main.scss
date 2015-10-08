@@ -32,7 +32,7 @@ h1 {
 
 
 .salad_container {
-	width: 60%;
+	width: 50%;
 	padding: 0 auto;
 	margin: 0 auto;
 
@@ -42,36 +42,37 @@ h1 {
 	display: inline-block;
 	border: solid #1C0F0F 4px;
 	border-radius: 10px;
-	background-color: rgba(244, 245, 193, 0.9);
+	background-color: rgba(248, 255, 219, 0.9);
 
 	width: 100%;
 	margin: 10px auto;
 	padding: 10px;
 
 	text-align: center;
-	font-size: 30px;
+	font-size: 35px;
 	
-	-webkit-transition: 2s; /* Safari 3.1 to 6.0 */
-    transition: 2s;	
+	// -webkit-transition: 2s; Safari 3.1 to 6.0
+ //    transition: 2s;	
 
 	
 	h2 {
-		margin: 0;
+		margin: -5px;
 
 		background-color: rgba(20, 85, 43, 0.6);
 		border-radius: 5px;
+		border-bottom: 4px solid #1C0F0F;
 
-		font-size: 80px;
+		font-size: 100px;
 		color: #F4FEC1;
 		font-family: 'Amatic SC', cursive;
 		text-shadow: 3px 3px #1C0F0F;
 	}
 
 	ul {
-		margin: 0;
+		margin: 30px 0 0 30px;
 		padding: 0;
+		text-align: left;
 		list-style-type: none;
-		
 		color: #1C0F0F;
 	}
 	button {
@@ -82,6 +83,12 @@ h1 {
 		background-color: rgba(0,0,0,0);
 		color: #1C0F0F;
 		font-size: 30px;
+	}
+
+	form {
+		input {
+			width: 50%;
+		}
 	}
 
 }

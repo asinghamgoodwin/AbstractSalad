@@ -19,33 +19,7 @@
         <div class='container'>
         <h1>Welcome to the Abstract Salad Factory! </h1>
 
-        <!-- {% for ing in ingredient_list %}
-            <p> {{ing}} </p>
-        {% endfor %} -->
-
-        <!-- <form action="" method="post">
-            {{ form.hidden_tag() }}
-            Name: {{ form.name(size=20) }}
-            Category: {{form.category}}
-            Ingredient: {{ form.ingredient(size=40) }}
-            <input type = "submit" value = "Click Me!">
-        </form>
- -->
-
-
-        <!-- <form>
-            Your name:
-            <input type="text" name="name">
-            <select name="category">
-                {% for category in categories %}
-                <option value={{category}}>{{category}}</option>
-                {% endfor %}
-            </select>
-            Ingredient:
-            <input type="text" name="ingredient">
-            <button>GO DO</button>
-        </form>            -->
-        
+    
         {% if warnings %}
             <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
         {% endif %}
@@ -53,13 +27,8 @@
         <br>
         <br>
         <div class='salad_container'>
-        <!--     <tr>
-        {% for cat in categoryDict.keys() %}
-            <th><strong> {{cat}} </strong></th>
-        {% endfor %}
-            </tr> -->
-            
-            {% for cat in categoryDict.keys() %}  
+
+            {% for (form, cat) in form_cat_zip %}
             <div class='salad_block'> 
                 <h2> {{cat}} </h2>
                     <ul>
@@ -72,9 +41,9 @@
                    <!-- <button> + </button> -->
                    <form action="" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.name(size=20) }}
-                        {{form.category}}
-                        {{ form.ingredient(size=40) }}
+                        {{ form.name }}
+                        {# form.category #}
+                        {{ form.ingredient }}
                     <input type = "submit" value = "Click Me!">
         </form>
             </div>

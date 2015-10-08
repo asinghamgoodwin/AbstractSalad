@@ -20,7 +20,7 @@
         <h1>Welcome to the Abstract Salad Factory! </h1>
 
     
-        {% if warnings %}
+        {%if warnings %}
             <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
         {% endif %}
 
@@ -39,12 +39,11 @@
                     {% endfor %}
                     </ul>
                    <!-- <button> + </button> -->
-                   <form action="" method="post">
+                   <form action="{{cat}}" method="post">
                         {{ form.hidden_tag() }}
                         {{ form.name }}
-                        {# form.category #}
                         {{ form.ingredient }}
-                    <input type = "submit" value = "Click Me!">
+                    <input type = "submit" id='submit' value = "Click Me!">
         </form>
             </div>
             {% endfor %}
@@ -53,5 +52,6 @@
 
        <!--  <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div> -->
    </div>
+
     </body>
 </html>

@@ -1,5 +1,15 @@
+// $tablet: @media screen and (min-width: 768px);
+
+
+
+
 * {
 	box-sizing: border-box;
+	font-size: 35px;
+	border-radius: 10px;
+	// $tablet {
+	// 	background-color: pink;
+	// }
 }
 
 body {
@@ -21,7 +31,7 @@ body {
 
 h1 {
 
-	font-size: 80px;
+	font-size: 4em;
 	text-align: center;
 	color: #F8FFDB;
 	text-shadow: 3px 3px #1C0F0F;
@@ -32,7 +42,7 @@ h1 {
 
 
 .salad_container {
-	width: 50%;
+	width: 60%;
 	padding: 0 auto;
 	margin: 0 auto;
 
@@ -41,7 +51,7 @@ h1 {
 .salad_block {
 	display: inline-block;
 	border: solid #1C0F0F 4px;
-	border-radius: 10px;
+	
 	background-color: rgba(248, 255, 219, 0.9);
 
 	width: 100%;
@@ -49,7 +59,7 @@ h1 {
 	padding: 10px;
 
 	text-align: center;
-	font-size: 35px;
+	font-size: 1.2em;
 	
 	// -webkit-transition: 2s; Safari 3.1 to 6.0
  //    transition: 2s;	
@@ -62,33 +72,65 @@ h1 {
 		border-radius: 5px;
 		border-bottom: 4px solid #1C0F0F;
 
-		font-size: 100px;
+		font-size: 5em;
 		color: #F4FEC1;
 		font-family: 'Amatic SC', cursive;
 		text-shadow: 3px 3px #1C0F0F;
 	}
 
 	ul {
-		margin: 30px 0 0 30px;
+		margin: 40px;
 		padding: 0;
 		text-align: left;
 		list-style-type: none;
 		color: #1C0F0F;
 	}
-	button {
-		margin-top: 5px;
-		padding: 5px;
-		width: 60%;
-		border-style: none;
-		background-color: rgba(0,0,0,0);
-		color: #1C0F0F;
-		font-size: 30px;
-	}
 
 	form {
-		input {
-			width: 50%;
+		margin-top: 20px;
+		border-top: dotted 4px #1C0F0F;
+
+		h3 {
+			font-size: 1.6em;
+			font-family: 'Amatic SC', cursive;
+			padding: 0;
+			margin: 0;
+			margin-top: 20px;
 		}
+
+		label {
+			font-size: 0.6em;
+			width: 100px;
+			text-align: left;
+			display: block;
+			padding: 0;
+			margin: 0;
+			margin-bottom: -15px;
+			margin-left: 10%;
+		}
+
+		input {
+			margin-top: 20px;
+			display: inline-block;
+			font-size: 1em;
+			width: 80%;
+			height: 50px;
+			margin-bottom: 10px;
+		}
+		#submit {
+			height: 50px;
+			margin: 10px;
+			margin-top: 20px;
+			width: 80%;
+			border-style: none; 
+			background-color: #5F0505;
+			color: #F4FEC1;
+			font-size: 1em;
+		}
+	}
+
+	.is_hidden {
+		display: none;
 	}
 
 }

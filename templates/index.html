@@ -16,7 +16,7 @@
     }  
     </style>
     <body>
-        <div class='container'>
+        <div class='container' id='container'>
         <h1>Welcome to the Abstract Salad Factory! </h1>
 
     
@@ -29,22 +29,27 @@
         <div class='salad_container'>
 
             {% for (form, cat) in form_cat_zip %}
-            <div class='salad_block'> 
+            <div class='salad_block' id='saladBlock{{cat}}'> 
                 <h2> {{cat}} </h2>
-                    <ul>
-                    {% for pair in categoryDict[cat] %}
+
+                <ul>
+                {% for pair in categoryDict[cat] %}
                     <li>
-                        {{pair[0]}} (<em>{{pair[1]}}</em>)
+                     - {{pair[0]}} (<em>{{pair[1]}}</em>)
                     </li>
-                    {% endfor %}
-                    </ul>
-                   <!-- <button> + </button> -->
-                   <form action="{{cat}}" method="post">
-                        {{ form.hidden_tag() }}
-                        {{ form.name }}
-                        {{ form.ingredient }}
-                    <input type = "submit" id='submit' value = "Click Me!">
-        </form>
+                {% endfor %}
+                </ul>
+
+               <form action="{{cat}}" method="post" class="is_hidden" id='saladForm{{cat}}'>
+                    <h3>What are you bringing?</h3>
+                    {{ form.hidden_tag() }}
+                    <label>Name:</label>
+                    {{ form.name }}
+                    <label>Ingredient:</label>
+                    {{ form.ingredient }}
+                    <input type = "submit" id='submit' value = "Submit">
+
+                </form>
             </div>
             {% endfor %}
             
@@ -52,6 +57,7 @@
 
        <!--  <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div> -->
    </div>
-
+   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src='/static/js/main.js'></script>
     </body>
 </html>

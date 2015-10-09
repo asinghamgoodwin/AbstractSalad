@@ -35,8 +35,8 @@
             border: solid #1C0F0F 4px;
             background-color: rgba(248, 255, 219, 0.9);
             width: 100%;
-            margin: 10px auto;
             padding: 10px;
+            margin-bottom: 10px;
             text-align: center;
             font-size: 1.2em; }
             .salad_block h2 {

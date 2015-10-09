@@ -1,16 +1,10 @@
-// $tablet: @media screen and (min-width: 768px);
-
-
-
-
 * {
 	box-sizing: border-box;
 	font-size: 35px;
 	border-radius: 10px;
-	// $tablet {
-	// 	background-color: pink;
-	// }
 }
+
+
 
 body {
 	background: url('/static/img/background_salad.jpg') no-repeat center center fixed; 
@@ -29,15 +23,18 @@ body {
 	border: 5px #1C0F0F solid;
 }
 
-h1 {
 
+h1 {
 	font-size: 4em;
 	text-align: center;
 	color: #F8FFDB;
 	text-shadow: 3px 3px #1C0F0F;
 	margin: 0;
 	padding: 0;
+
 }
+
+
 
 
 
@@ -45,6 +42,20 @@ h1 {
 	width: 60%;
 	padding: 0 auto;
 	margin: 0 auto;
+
+	// @media screen and (min-width: 375px) and (max-width: 769px) {
+	// 	width: 100%;
+	// 	padding-left: 20px;
+
+	//   	-webkit-column-count: 2;
+ //  	  	-webkit-column-gap:   2.5px;
+	//    	-moz-column-count:    2;
+	//   	-moz-column-gap:	  2.5px;
+	//   	column-count:         2;
+	//   	column-gap:  		  2.5px;
+	  	
+
+	// } 
 
 }
 
@@ -55,11 +66,18 @@ h1 {
 	background-color: rgba(248, 255, 219, 0.9);
 
 	width: 100%;
-	margin: 10px auto;
+	
 	padding: 10px;
+	margin-bottom: 10px;
 
 	text-align: center;
 	font-size: 1.2em;
+
+	// @media screen and (min-width: 375px) and (max-width: 769px){
+	// 	width: 90%;
+	// 	vertical-align: top;
+	// 	margin: 10px;
+	// } 
 	
 	// -webkit-transition: 2s; Safari 3.1 to 6.0
  //    transition: 2s;	
@@ -76,6 +94,10 @@ h1 {
 		color: #F4FEC1;
 		font-family: 'Amatic SC', cursive;
 		text-shadow: 3px 3px #1C0F0F;
+
+		// @media screen and (min-width: 375px) {
+		// 	font-size: 3em;
+		// } 
 	}
 
 	ul {
@@ -139,3 +161,11 @@ h1 {
 .footer {
 	position: relative;
 }
+
+// @media scand (min-width: 375px) {
+
+// 	h1 {
+// 		font-size: 2px;
+// 	}
+
+// } 

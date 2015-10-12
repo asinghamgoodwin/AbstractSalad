@@ -17,7 +17,7 @@
     </style>
     <body>
         <div class='container' id='container'>
-        <h1>Welcome to the Abstract Salad Factory! </h1>
+        <h1>Welcome to the<br/> Abstract Salad Factory! </h1>
 
     
         {%if warnings %}
@@ -35,7 +35,7 @@
                 <ul>
                 {% for pair in categoryDict[cat] %}
                     <li>
-                     - {{pair[0]}} (<em>{{pair[1]}}</em>)
+                     {{pair[0]}} (<em>{{pair[1]}}</em>)
                     </li>
                 {% endfor %}
                 </ul>
@@ -43,10 +43,13 @@
                <form action="{{cat}}" method="post" class="is_hidden" id='saladForm{{cat}}'>
                     <h3>What are you bringing?</h3>
                     {{ form.hidden_tag() }}
-                    <label>Name:</label>
-                    {{ form.name }}
+
                     <label>Ingredient:</label>
                     {{ form.ingredient }}
+                    
+                    <label>Name:</label>
+                    {{ form.name }}
+                    
                     <input type = "submit" id='submit' value = "Submit">
 
                 </form>

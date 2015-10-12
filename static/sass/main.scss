@@ -1,10 +1,22 @@
-* {
-	box-sizing: border-box;
-	font-size: 35px;
-	border-radius: 10px;
+$break-small: 680px;
+$break-large: 1147px;
+
+@mixin respond-to($media) {
+	// @if $media == handhelds {
+	// 	@media only screen and (max-width: $break-small) { @content; }
+	// }
+	@if $media == medium-screens {
+	    @media only screen and (min-width: #{$break-small + 1}) and (max-width: #{$break-large - 1}) { @content; }
+	  }
+	@else if $media == wide-screens {
+		@media only screen and (min-width: $break-large) { @content; }
+	}
 }
 
-
+* {
+	box-sizing: border-box;
+	
+}
 
 body {
 	background: url('/static/img/background_salad.jpg') no-repeat center center fixed; 
@@ -12,20 +24,25 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	
+	position: relative;
+
+	font-size: 35px;
 }
 
 .container {
 	background-color: rgba(0, 0, 0, 0.6);
+	background-size: cover;
 	margin: 0;
 	padding: 10px;
+	
 	width: 100%;
 	border: 5px #1C0F0F solid;
+	border-radius: 10px;
 }
 
 
 h1 {
-	font-size: 4em;
+	font-size: 2.75em;
 	text-align: center;
 	color: #F8FFDB;
 	text-shadow: 3px 3px #1C0F0F;
@@ -39,48 +56,33 @@ h1 {
 
 
 .salad_container {
-	width: 60%;
-	padding: 0 auto;
+	width: 80%;
 	margin: 0 auto;
 
-	// @media screen and (min-width: 375px) and (max-width: 769px) {
-	// 	width: 100%;
-	// 	padding-left: 20px;
 
-	//   	-webkit-column-count: 2;
- //  	  	-webkit-column-gap:   2.5px;
-	//    	-moz-column-count:    2;
-	//   	-moz-column-gap:	  2.5px;
-	//   	column-count:         2;
-	//   	column-gap:  		  2.5px;
-	  	
+  	display: flex;
+  	flex-flow: column;
+  	justify-content: center;
+  	align-items: stretch;
+  	align-content: stretch;
 
-	// } 
-
+  	
 }
+
+
 
 .salad_block {
 	display: inline-block;
 	border: solid #1C0F0F 4px;
-	
-	background-color: rgba(248, 255, 219, 0.9);
+	border-radius: 10px;
+	position: relative;
+	background-color: rgba(248, 255, 219, 1);
 
 	width: 100%;
-	
-	padding: 10px;
 	margin-bottom: 10px;
 
 	text-align: center;
 	font-size: 1.2em;
-
-	// @media screen and (min-width: 375px) and (max-width: 769px){
-	// 	width: 90%;
-	// 	vertical-align: top;
-	// 	margin: 10px;
-	// } 
-	
-	// -webkit-transition: 2s; Safari 3.1 to 6.0
- //    transition: 2s;	
 
 	
 	h2 {
@@ -90,7 +92,7 @@ h1 {
 		border-radius: 5px;
 		border-bottom: 4px solid #1C0F0F;
 
-		font-size: 5em;
+		font-size: 5rem;
 		color: #F4FEC1;
 		font-family: 'Amatic SC', cursive;
 		text-shadow: 3px 3px #1C0F0F;
@@ -105,12 +107,24 @@ h1 {
 		padding: 0;
 		text-align: left;
 		list-style-type: none;
+
 		color: #1C0F0F;
+	}
+	li {
+		margin: 20px 0;
+		border-bottom: 1px dashed black;
 	}
 
 	form {
-		margin-top: 20px;
+		margin: -4px;
+		border: solid #1C0F0F 4px;
 		border-top: dotted 4px #1C0F0F;
+		border-radius: 5px;
+
+		transition: all ease-in 200ms;
+
+		z-index: 1;
+		background-color: rgba(248, 255, 219, 1);
 
 		h3 {
 			font-size: 1.6em;
@@ -134,13 +148,15 @@ h1 {
 		input {
 			margin-top: 20px;
 			display: inline-block;
-			font-size: 1em;
+			font-size: 0.75em;
+			font-family: serif;
 			width: 80%;
 			height: 50px;
 			margin-bottom: 10px;
+			border-radius: 5px;
 		}
 		#submit {
-			height: 50px;
+			height: 55px;
 			margin: 10px;
 			margin-top: 20px;
 			width: 80%;
@@ -148,11 +164,13 @@ h1 {
 			background-color: #5F0505;
 			color: #F4FEC1;
 			font-size: 1em;
+			font-family: serif;
+			border-radius: 5px;
 		}
 	}
 
 	.is_hidden {
-		display: none;
+		display:none;
 	}
 
 }
@@ -162,10 +180,95 @@ h1 {
 	position: relative;
 }
 
-// @media scand (min-width: 375px) {
+@include respond-to(medium-screens) {
 
-// 	h1 {
-// 		font-size: 2px;
-// 	}
+	// h1 {
+	// 	font-size: 2em;
+	// }
+	.salad_container {
+		width: 100%;
+		padding-left: 20px;
 
-// } 
+		flex-flow: row;
+	  	flex-wrap: wrap;
+	  	align-items: flex-start;
+	  	position: relative;
+	  	justify-content: space-around;
+
+	} 
+
+	.salad_block {
+		width: 45%;
+		vertical-align: top;
+		align-self:stretch;
+
+		li {
+			font-size: 0.75em;
+		}
+		
+		form {
+			margin-bottom: 0;
+			position: relative;
+
+			h3 {
+				font-size: 1em;
+			}
+			label {
+				font-size: 0.5em;
+			}
+			#submit {
+				font-size: 0.75em;
+			}
+		}
+
+	}
+}
+
+
+@include respond-to(wide-screens) {
+	.salad_container {
+		width: 100%;
+		padding-left: 20px;
+		padding-bottom: 350px;
+
+	  	flex-flow: row;
+	  	flex-wrap: wrap;
+	  	align-items: flex-start;
+	  	position: relative;
+	  	
+	}
+	.salad_block {
+		width: 31%;
+		vertical-align: top;
+		margin: 10px;
+		padding: 0;
+		align-self:stretch;
+
+
+		ul {
+			margin: 10%;
+		}
+		li {
+			padding: 0;
+			
+			font-size: 0.7em;
+		}
+		form {
+			margin-bottom: 10px;
+			position: absolute;
+
+			h3 {
+				font-size: 1em;
+			}
+			label {
+				font-size: 0.5em;
+			}
+			input {
+				height: 40px;
+			}
+			#submit {
+				font-size: 0.75em;
+			}
+		}
+	}
+}

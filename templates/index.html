@@ -17,11 +17,11 @@
     </style>
     <body>
         <div class='container' id='container'>
-        <h1>Welcome to the<br/> Abstract Salad Factory! </h1>
+        <h1>Welcome to the<br/> Abstract Salad Factory! {{warnings}}</h1>
 
     
         {%if warnings %}
-            <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
+            <div class='warnings'>HELP! We need more {{warnings}}</div>
         {% endif %}
 
         <br>

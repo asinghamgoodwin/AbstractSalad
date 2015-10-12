@@ -29,7 +29,7 @@ class SaladForm(Form):
     #         cur = db.cursor()
     #         cur.execute('SELECT category from category')
     #         categoryList = cur.fetchall()
-    
+
     name = StringField('name', validators=[DataRequired()])
     # doing validators=[DataRequired()] did not work for the SelectField
     # category = SelectField('category', validators=[Optional()])
@@ -75,44 +75,31 @@ def index():
     # db.close()
 
     ### this section is for pretty printing
-    # db = get_db()
-    # with db:
-    # with closing(db.cursor()) as cur:
-        # cur = db.cursor()
+    db = get_db()
+    with closing(db.cursor()) as cur:
+        cur = db.cursor()
 
-    #     for (form, cat) in form_cat_zip:
-    #         if form.validate_on_submit():
-    #             print cat+"I validated on submit"
-    #             cur.execute('insert into Ingredient (person, category, ingredient) values (?, ?, ?)', 
-    #                         [form.name.data, cat, form.ingredient.data])
-    #         # print categoryList
-    #         # print form.name.data
-    #         #print form.category.data
-    #         else:
-    #             print "I didn't validate"
-    # # could we also use close_connection() ?
-
-
-        cur.execute('SELECT person, category, ingredient FROM Ingredient')            
+        cur.execute('SELECT person, category, ingredient FROM Ingredient')
         IngredientTableTuples = cur.fetchall()
         categories = [x[0] for x in category_tuples]
         categories_for_printing = {}
         for cat in categories:
             categories_for_printing[cat] = [(x[2].encode('utf8'), x[0].encode('utf8')) for x in IngredientTableTuples if x[1] == cat]
-            
-        #print categories_for_printing
+
+        # print categories_for_printing
     db.close()
 
     ourRatios = sm.calculateRatios(categories_for_printing)
     warningsList = sm.warnAboutRatios(sm.perfectSaladRatios, ourRatios)
+
     warningsString = ", ".join(warningsList)
-    print warningsString
+
     # # pretend_ingredients = ["cats", "spinace", "avodabo", "carobs"]
     # pretend_categories = ["greebs", "vebebbggeez", "FROOBs"]
     return render_template('index.html',
                             form_cat_zip=form_cat_zip,
                             categoryDict=categories_for_printing,
-                            # warnings=warningsString
+                            warnings=warningsString,
                             )
             # ingredient_list=pretend_ingredients,
             # categories=pretend_categories)
@@ -135,7 +122,7 @@ def veggies():
 
     db.commit()
     db.close()
-    
+
     return redirect('/index')
 
 @app.route('/Protein', methods=["POST"])
@@ -156,7 +143,7 @@ def protein():
 
     db.commit()
     db.close()
-    
+
     return redirect('/index')
 
 @app.route('/Greens', methods=["POST"])
@@ -177,7 +164,7 @@ def greens():
 
     db.commit()
     db.close()
-    
+
     return redirect('/index')
 
 @app.route('/Dressing', methods=["POST"])
@@ -198,7 +185,7 @@ def dressing():
 
     db.commit()
     db.close()
-    
+
     return redirect('/index')
 
 @app.route('/Other', methods=["POST"])
@@ -219,7 +206,7 @@ def other():
 
     db.commit()
     db.close()
-    
+
     return redirect('/index')
 
 

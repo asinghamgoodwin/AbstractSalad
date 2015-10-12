@@ -74,11 +74,18 @@
                     margin: 20px 0;
                     border-bottom: 1px dashed black; }
                     .salad_block form {
+                      overflow: hidden;
                       margin: -4px;
                       border: solid #1C0F0F 4px;
                       border-top: dotted 4px #1C0F0F;
                       border-radius: 5px;
-                      transition: all 200ms;
+                      height: 360px;
+                      opacity: 1;
+                      -moz-transition: all 0.5s ease;
+                      -o-transition: all 0.5s ease;
+                      -ms-transition: all 0.5s ease;
+                      -webkit-transition: all 0.5s ease;
+                      transition: all 0.5s ease;
                       z-index: 1;
                       background-color: #f8ffdb; }
                       .salad_block form h3 {
@@ -117,7 +124,8 @@
                               font-family: serif;
                               border-radius: 5px; }
               .salad_block .is_hidden {
-                display: none; }
+                height: 0;
+                opacity: 0; }
 
 .footer {
   position: relative; }

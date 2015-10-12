@@ -129,12 +129,20 @@ h1 {
 	}
 
 	form {
+		overflow: hidden;
 		margin: -4px;
 		border: solid $dark-color 4px;
 		border-top: dotted 4px $dark-color;
 		border-radius: 5px;
+		height: 360px;
+		opacity: 1;
 
-		transition: all 200ms;
+		-moz-transition: all 0.5s ease;
+  		-o-transition: all 0.5s ease;
+ 		-ms-transition: all 0.5s ease;
+ 		-webkit-transition: all 0.5s ease;
+  
+		transition: all 0.5s ease;
 
 		z-index: 1;
 		background-color: rgba(248, 255, 219, 1);
@@ -183,7 +191,8 @@ h1 {
 	}
 
 	.is_hidden {
-		display:none;
+		height: 0;
+		opacity: 0;
 	}
 
 }

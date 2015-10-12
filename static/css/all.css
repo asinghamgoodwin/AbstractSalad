@@ -11,28 +11,28 @@
     font-size: 35px; }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.6);
-      background-size: cover;
+      width: 100%;
       margin: 0;
       padding: 10px auto;
-      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-size: cover;
       border: 5px #1C0F0F solid;
       border-radius: 10px; }
 
       h1 {
+        margin: 0;
+        padding: 0;
         font-size: 2.75em;
         text-align: center;
         color: #F8FFDB;
-        text-shadow: 3px 3px #1C0F0F;
-        margin: 0;
-        padding: 0; }
+        text-shadow: 3px 3px #1C0F0F; }
 
         .warnings {
-          font-size: 1.5em;
           width: 100%;
-          text-align: center;
           margin: 0 auto;
           padding: 0 auto;
+          text-align: center;
+          font-size: 1.5em;
           color: #fa9c9c;
           text-shadow: 1px 1px #5F0505; }
 
@@ -46,14 +46,14 @@
             align-content: stretch; }
 
             .salad_block {
-              display: inline-block;
-              border: solid #1C0F0F 4px;
-              border-radius: 10px;
-              position: relative;
-              background-color: #F8FFDB;
               width: 100%;
               margin-bottom: 10px;
+              display: inline-block;
+              position: relative;
               text-align: center;
+              background-color: #F8FFDB;
+              border: solid #1C0F0F 4px;
+              border-radius: 10px;
               font-size: 1.2em; }
               .salad_block h2 {
                 margin: -5px;
@@ -72,87 +72,94 @@
                   color: #1C0F0F; }
                   .salad_block li {
                     margin: 20px 0;
-                    border-bottom: 1px dashed black; }
+                    border-bottom: 1px dashed #1C0F0F; }
                     .salad_block form {
-                      overflow: hidden;
+                      height: 400px;
                       margin: -4px;
+                      z-index: 1;
+                      overflow: hidden;
+                      background-color: #f8ffdb;
                       border: solid #1C0F0F 4px;
                       border-top: dotted 4px #1C0F0F;
                       border-radius: 5px;
-                      height: 360px;
                       opacity: 1;
                       -moz-transition: all 0.5s ease;
                       -o-transition: all 0.5s ease;
                       -ms-transition: all 0.5s ease;
                       -webkit-transition: all 0.5s ease;
-                      transition: all 0.5s ease;
-                      z-index: 1;
-                      background-color: #f8ffdb; }
+                      transition: all 0.5s ease; }
                       .salad_block form h3 {
-                        font-size: 1.6em;
-                        font-family: 'Amatic SC', cursive;
                         padding: 0;
                         margin: 0;
-                        margin-top: 20px; }
+                        margin-top: 20px;
+                        font-size: 1.6em;
+                        font-family: 'Amatic SC', cursive; }
                         .salad_block form label {
-                          font-size: 0.6em;
                           width: 100px;
-                          text-align: left;
-                          display: block;
                           padding: 0;
                           margin: 0;
                           margin-bottom: -15px;
-                          margin-left: 10%; }
+                          margin-left: 10%;
+                          text-align: left;
+                          display: block;
+                          font-size: 0.6em; }
                           .salad_block form input {
-                            margin-top: 20px;
-                            display: inline-block;
-                            font-size: 0.75em;
-                            font-family: serif;
                             width: 80%;
                             height: 50px;
+                            margin-top: 20px;
                             margin-bottom: 10px;
-                            border-radius: 5px; }
+                            display: inline-block;
+                            border-radius: 5px;
+                            font-size: 0.75em;
+                            font-family: serif; }
                             .salad_block form #submit {
                               height: 55px;
                               margin: 10px;
                               margin-top: 20px;
                               width: 80%;
                               border-style: none;
+                              border-radius: 5px;
                               background-color: #5F0505;
                               color: #F8FFDB;
                               font-size: 1em;
-                              font-family: serif;
-                              border-radius: 5px; }
+                              font-family: serif; }
               .salad_block .is_hidden {
                 height: 0;
                 opacity: 0; }
 
-.footer {
-  position: relative; }
+.credits {
+  padding: 10px;
+  background-color: #F8FFDB;
+  border: solid 1px #1C0F0F;
+  font-size: 0.5em;
+  bottom: 0; }
+  .credits a {
+    color: #5F0505; }
 
-  @media only screen and (min-width: 681px) and (max-width: 1146px) {
-    .salad_container {
-      width: 100%;
-      padding-left: 20px;
-      flex-flow: row;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      position: relative;
-      justify-content: space-around;   }
-      .salad_block {
-        width: 45%;
-        vertical-align: top;   }
-        .salad_block li {
-          font-size: 0.75em;   }
-          .salad_block form {
-            margin-bottom: 0;
-            position: relative;   }
-            .salad_block form h3 {
-              font-size: 1em;   }
-              .salad_block form label {
-                font-size: 0.5em;   }
-                .salad_block form #submit {
-                  font-size: 0.75em;   }
+@media only screen and (min-width: 681px) and (max-width: 1146px) {
+  .salad_container {
+    width: 100%;
+    padding-left: 20px;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+    justify-content: space-around;   }
+    .salad_block {
+      width: 45%;
+      vertical-align: top;   }
+      .salad_block li {
+        font-size: 0.75em;   }
+        .salad_block form {
+          margin-bottom: 0;
+          position: relative;
+          height: 360px;   }
+          .salad_block form h3 {
+            font-size: 1em;   }
+            .salad_block form label {
+              font-size: 0.5em;   }
+              .salad_block form #submit {
+                font-size: 0.75em;   }
 }
 
 @media only screen and (min-width: 1147px) {
@@ -177,7 +184,8 @@
           font-size: 0.7em;   }
           .salad_block form {
             margin-bottom: 10px;
-            position: absolute;   }
+            position: absolute;
+            height: 350px;   }
             .salad_block form h3 {
               font-size: 1em;   }
               .salad_block form label {

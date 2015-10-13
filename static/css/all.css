@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box; }
+
+  body {
+    background: url('/static/img/background_salad.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    font-size: 35px; }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      padding: 10px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-size: cover;
+      border: 5px #1C0F0F solid;
+      border-radius: 10px; }
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 2.75em;
+        text-align: center;
+        color: #F8FFDB;
+        text-shadow: 3px 3px #1C0F0F; }
+
+        .warnings {
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 auto;
+          text-align: center;
+          font-size: 1.5em;
+          color: #fa9c9c;
+          text-shadow: 1px 1px #5F0505; }
+
+          .salad_container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: stretch;
+            align-content: stretch; }
+
+            .salad_block {
+              width: 100%;
+              margin-bottom: 10px;
+              display: inline-block;
+              position: relative;
+              text-align: center;
+              background-color: #F8FFDB;
+              border: solid #1C0F0F 4px;
+              border-radius: 10px;
+              font-size: 1.2em; }
+              .salad_block h2 {
+                margin: -5px;
+                background-color: rgba(20, 85, 43, 0.6);
+                border-radius: 5px;
+                border-bottom: 4px solid #1C0F0F;
+                font-size: 5rem;
+                color: #F8FFDB;
+                font-family: 'Amatic SC', cursive;
+                text-shadow: 3px 3px #1C0F0F; }
+                .salad_block ul {
+                  margin: 40px;
+                  padding: 0;
+                  text-align: left;
+                  list-style-type: none;
+                  color: #1C0F0F; }
+                  .salad_block li {
+                    margin: 20px 0;
+                    border-bottom: 1px dashed #1C0F0F; }
+                    .salad_block form {
+                      height: 400px;
+                      margin: -4px;
+                      z-index: 1;
+                      overflow: hidden;
+                      background-color: #f8ffdb;
+                      border: solid #1C0F0F 4px;
+                      border-top: dotted 4px #1C0F0F;
+                      border-radius: 5px;
+                      opacity: 1;
+                      -moz-transition: all 0.5s ease;
+                      -o-transition: all 0.5s ease;
+                      -ms-transition: all 0.5s ease;
+                      -webkit-transition: all 0.5s ease;
+                      transition: all 0.5s ease; }
+                      .salad_block form h3 {
+                        padding: 0;
+                        margin: 0;
+                        margin-top: 20px;
+                        font-size: 1.6em;
+                        font-family: 'Amatic SC', cursive; }
+                        .salad_block form label {
+                          width: 100px;
+                          padding: 0;
+                          margin: 0;
+                          margin-bottom: -15px;
+                          margin-left: 10%;
+                          text-align: left;
+                          display: block;
+                          font-size: 0.6em; }
+                          .salad_block form input {
+                            width: 80%;
+                            height: 50px;
+                            margin-top: 20px;
+                            margin-bottom: 10px;
+                            display: inline-block;
+                            border-radius: 5px;
+                            font-size: 0.75em;
+                            font-family: serif; }
+                            .salad_block form #submit {
+                              height: 55px;
+                              margin: 10px;
+                              margin-top: 20px;
+                              width: 80%;
+                              border-style: none;
+                              border-radius: 5px;
+                              background-color: #5F0505;
+                              color: #F8FFDB;
+                              font-size: 1em;
+                              font-family: serif; }
+              .salad_block .is_hidden {
+                height: 0;
+                opacity: 0; }
+
+.credits {
+  padding: 10px;
+  background-color: #F8FFDB;
+  border: solid 1px #1C0F0F;
+  font-size: 0.5em;
+  bottom: 0; }
+  .credits a {
+    color: #5F0505; }
+
+@media only screen and (min-width: 681px) and (max-width: 1146px) {
+  .salad_container {
+    width: 100%;
+    padding-left: 20px;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+    justify-content: space-around;   }
+    .salad_block {
+      width: 45%;
+      vertical-align: top;   }
+      .salad_block li {
+        font-size: 0.75em;   }
+        .salad_block form {
+          margin-bottom: 0;
+          position: relative;
+          height: 360px;   }
+          .salad_block form h3 {
+            font-size: 1em;   }
+            .salad_block form label {
+              font-size: 0.5em;   }
+              .salad_block form #submit {
+                font-size: 0.75em;   }
+}
+
+@media only screen and (min-width: 1147px) {
+  .salad_container {
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 350px;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;   }
+    .salad_block {
+      width: 31%;
+      vertical-align: top;
+      margin: 10px;
+      padding: 0;
+      align-self: stretch;   }
+      .salad_block ul {
+        margin: 10%;   }
+        .salad_block li {
+          padding: 0;
+          font-size: 0.7em;   }
+          .salad_block form {
+            margin-bottom: 10px;
+            position: absolute;
+            height: 350px;   }
+            .salad_block form h3 {
+              font-size: 1em;   }
+              .salad_block form label {
+                font-size: 0.5em;   }
+                .salad_block form input {
+                  height: 40px;   }
+                  .salad_block form #submit {
+                    font-size: 0.75em;   }
+}

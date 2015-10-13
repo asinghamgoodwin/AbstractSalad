@@ -2,6 +2,10 @@
 
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700|EB+Garamond' rel='stylesheet' type='text/css'>
+        {% assets "scss_all" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}"></link>
+        {% endassets %}
     </head>
     <style type ="text/css" >
     .footer{ 
@@ -12,58 +16,53 @@
     }  
     </style>
     <body>
-        <p>Welcome to the Abstract Salad Factory! </p>
-        <br>
-        <!-- {% for ing in ingredient_list %}
-            <p> {{ing}} </p>
-        {% endfor %} -->
+        <div class='container' id='container'>
+        <h1>Welcome to the<br/> Abstract Salad Factory! {{warnings}}</h1>
 
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-            Name: {{ form.name(size=20) }}
-            Category: {{form.category}}
-            Ingredient: {{ form.ingredient(size=40) }}
-            <input type = "submit" value = "Click Me!">
-        </form>
-        <!-- <form>
-            Your name:
-            <input type="text" name="name">
-            <select name="category">
-                {% for category in categories %}
-                <option value={{category}}>{{category}}</option>
-                {% endfor %}
-            </select>
-            Ingredient:
-            <input type="text" name="ingredient">
-            <button>GO DO</button>
-        </form>            -->
-        <br>
-        {% if warnings %}
-            <font color="red"> <strong> HELP! We need more {{warnings}}</strong> </font>
+    
+        {%if warnings %}
+            <div class='warnings'>HELP! We need more {{warnings}}</div>
         {% endif %}
 
         <br>
         <br>
-        <table>
-        <!--     <tr>
-        {% for cat in categoryDict.keys() %}
-            <th><strong> {{cat}} </strong></th>
-        {% endfor %}
-            </tr> -->
+        <div class='salad_container'>
 
-        <tr>
-        {% for cat in categoryDict.keys() %}  
-            <td valign="top"><strong> {{cat}} </strong>
-            <br>
-            {% for pair in categoryDict[cat] %}
-            {{pair[0]}} - <em>{{pair[1]}}</em>
-            <br>
-            {% endfor %}   
-            </th> 
-        {% endfor %}
-        </tr>    
+            {% for (form, cat) in form_cat_zip %}
+            <div class='salad_block' id='saladBlock{{cat}}'> 
+                <h2> {{cat}} </h2>
 
+                <ul>
+                {% for pair in categoryDict[cat] %}
+                    <li>
+                     {{pair[0]}} (<em>{{pair[1]}}</em>)
+                    </li>
+                {% endfor %}
+                </ul>
 
-        <div class="footer"> This app was created dojo-style by Jamal Carvalho (S2'15), Madelyn Ruth Freed (S2'15), Shad William Hopson (F1'15), Kristin Linn (F1'15), Elizabeth Sander (S2'15), Alicia Thilani Singham Goodwin (F1'15), Alex Takata (F1'15), Liene Verzemnieks (S2'15), and Weston Elliott Vial (S2'15)</div>
+               <form action="{{cat}}" method="post" class="is_hidden" id='saladForm{{cat}}'>
+                    <h3>What are you bringing?</h3>
+                    {{ form.hidden_tag() }}
+
+                    <label>Ingredient:</label>
+                    {{ form.ingredient }}
+                    
+                    <label>Name:</label>
+                    {{ form.name }}
+                    
+                    <input type = "submit" id='submit' value = "Submit">
+
+                </form>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        <div class="credits"> This app was created dojo-style by <a href='https://www.recurse.com/people/1296-jamal-carvalho'>Jamal Carvalho</a> (S2'15), <a href='https://www.recurse.com/people/1290-madelyn-ruth-freed'>Madelyn Ruth Freed</a> (S2'15), <a href='https://www.recurse.com/people/1348-shad-william-hopson'>Shad William Hopson</a> (F1'15), <a href='https://www.recurse.com/people/1332-kristin-linn'>Kristin Linn</a> (F1'15), <a href='https://www.recurse.com/people/1285-elizabeth-sander'>Elizabeth Sander</a> (S2'15), <a href='https://www.recurse.com/people/1340-alicia-thilani-singham-goodwin'>Alicia Thilani Singham Goodwin<a/> (F1'15), <a href='https://www.recurse.com/people/1331-alex-takata'>Alex Takata</a> (F1'15), <a href='https://www.recurse.com/people/1297-liene-l-verzemnieks'>Liene Verzemnieks</a> (S2'15), and <a href='https://www.recurse.com/people/1301-weston-vial'>Weston Elliott Vial</a> (S2'15). Front-end design by <a href='https://www.recurse.com/people/1338-lindsey-jacks'>Lindsey Jacks</a> (F1'15)</div>
+
+        
+   </div>
+   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src='/static/js/main.js'></script>
     </body>
 </html>

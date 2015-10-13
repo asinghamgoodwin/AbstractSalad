@@ -1,3 +1,5 @@
 flask/*
 *.pyc
 *~
+static/sass/.sass-cache
+static/.webassets-cache

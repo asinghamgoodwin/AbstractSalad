@@ -5,7 +5,7 @@ from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/salad'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/new'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -14,6 +14,7 @@ manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
 from views import *
+from models import *
 
 @manager.command
 def run():

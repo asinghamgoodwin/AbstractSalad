@@ -1,0 +1,4 @@
+flask/*
+*.pyc
+node_modules
+*.swp

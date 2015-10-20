@@ -1,7 +1,8 @@
 var path = require('path'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin')
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+    devtool: "source-map",
     entry: {
         app: ['./app/main.jsx']
     },
@@ -19,22 +20,23 @@ module.exports = {
                 loader: 'babel?optional[]=runtime'
             },
             // CSS loader
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-            }
-            // SASS/SCSS
             // {
-            //     test: /\.(sass|scss)$/,
-            //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
-            // }
+            //     test: /\.css$/,
+            //     loader: ExtractTextPlugin.extract('style-loader', 'css-loader?-minimize')
+            // },
+            //SASS/SCSS
+            {
+                test: /\.(sass|scss)$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader?-minimize!sass-loader')
+            }
         ]
     },
     resolve: {
         // where to find modules
         modulesDirectories: [
             'node_modules',
-            //'resources',
+            'resources',
+            'static',
             'app'
         ],
         extensions: ['.js', '.json', '.jsx', '']

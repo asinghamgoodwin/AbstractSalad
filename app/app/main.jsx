@@ -1,6 +1,9 @@
+"use strict";
+import 'styles/styles.scss';
 var React = require('react');
 var ReactDOM = require('react-dom');
 var createFragment = require('react-addons-create-fragment');
+
 
 var CATEGORIES = ['Greens','Protein','Other','Veggies'];
 var COMMITMENTS =
@@ -30,7 +33,7 @@ var Commitment = React.createClass({
 var Form = React.createClass({
 	render: function(){
 		return (
-			<form action={this.props.category} /*onSubmit={this.handleSubmit}*/>
+			<form className='is_hidden' action={this.props.category} /*onSubmit={this.handleSubmit}*/>
 	      		<label for='name'>Name</label>
 	      		<input name="name" /*value={this.state.value}*/ /*onChange={this.handleChange.bind(null, 'name')}*/ style={{margin:'5px'}}/>
 	     		<label for='ingredient'>Ingredient</label>
@@ -41,24 +44,24 @@ var Form = React.createClass({
 	},
 
 
-	handleChange: function(field, e) {
-    	this.setState({[field]: e.target.value});
-  	},
-  	handleSubmit: function(e) {
-		e.preventDefault();
-		var newState = this.state.ingredients;
-		var newThing = {
-		  name: this.state.name,
-		  category: this.state.category,
-		  ingredient: this.state.ingredient
-		};
-		newState.push(newThing);
-		this.setState({ingredients: newState});
-		//server.addIngredient(newThing);
-	},
-	getInitialState: function(){
-    	return {ingredients: [], name: '', ingredient: ''};
-	}
+	// handleChange: function(field, e) {
+ //    	this.setState({[field]: e.target.value});
+ //  	},
+ //  	handleSubmit: function(e) {
+	// 	e.preventDefault();
+	// 	var newState = this.state.ingredients;
+	// 	var newThing = {
+	// 	  name: this.state.name,
+	// 	  category: this.state.category,
+	// 	  ingredient: this.state.ingredient
+	// 	};
+	// 	newState.push(newThing);
+	// 	this.setState({ingredients: newState});
+	// 	//server.addIngredient(newThing);
+	// },
+	// getInitialState: function(){
+ //    	return {ingredients: [], name: '', ingredient: ''};
+	// }
 });
 
 var CategoryBox = React.createClass({
@@ -67,7 +70,7 @@ var CategoryBox = React.createClass({
 		var self = this;
 		this.props.commitments.forEach(function(commitment){
 		 	if (self.props.category === commitment.category)
-		 		commitmentList.push(<Commitment key={commitment} commitment={commitment} category={category} />)
+		 		commitmentList.push(<Commitment key={commitment} commitment={commitment} category={self.props.category} />)
 		});
 		//var formKey = "form" + {this.props.category}
 		return (

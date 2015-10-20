@@ -1,0 +1,327 @@
+$break-small: 680px;
+$break-large: 1147px;
+
+$light-color: #F8FFDB;
+$dark-color: #1C0F0F;
+$main-accent: rgba(20, 85, 43, 0.6);
+$pop-accent: #5F0505;
+
+
+@mixin respond-to($media) {
+	// @if $media == handhelds {
+	// 	@media only screen and (max-width: $break-small) { @content; }
+	// }
+	@if $media == medium-screens {
+	    @media only screen and (min-width: #{$break-small + 1}) and (max-width: #{$break-large - 1}) { @content; }
+	  }
+	@else if $media == wide-screens {
+		@media only screen and (min-width: $break-large) { @content; }
+	}
+}
+
+* {
+	box-sizing: border-box;
+	
+}
+
+body {
+	//background: url('/resources/img/background_salad.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: relative;
+
+	font-size: 35px;
+}
+
+#container {
+	width: 100%;
+	margin: 0;
+	padding: 10px auto;
+
+	background-color: rgba(0, 0, 0, 0.6);
+	background-size: cover;
+	
+	border: 5px $dark-color solid;
+	border-radius: 10px;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+
+	font-size: 2.75em;
+	text-align: center;
+	color: $light-color;
+	text-shadow: 3px 3px $dark-color;
+}
+
+
+.warnings {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 auto;
+
+	text-align: center;
+
+	font-size: 1.5em;
+	color: lighten($pop-accent, 60%);
+	text-shadow: 1px 1px $pop-accent;
+}
+
+
+.saladContainer {
+	width: 80%;
+	margin: 0 auto;
+
+  	display: flex;
+  	flex-flow: column;
+  	justify-content: center;
+  	align-items: stretch;
+  	align-content: stretch;  	
+}
+
+
+
+.categoryBlock {
+	width: 100%;
+	margin-bottom: 10px;
+
+	display: inline-block;
+	position: relative;
+	text-align: center;
+
+	background-color: $light-color;
+	border: solid $dark-color 4px;
+	border-radius: 10px;
+	
+	font-size: 1.2em;
+
+	h2 {
+		margin: -5px;
+
+		background-color: rgba(20, 85, 43, 0.6);
+		border-radius: 5px;
+		border-bottom: 4px solid #1C0F0F;
+
+		font-size: 5rem;
+		color: $light-color;
+		font-family: 'Amatic SC', cursive;
+		text-shadow: 3px 3px $dark-color;
+	}
+
+	ul {
+		margin: 40px;
+		padding: 0;
+
+		text-align: left;
+		list-style-type: none;
+
+		color: $dark-color;
+	}
+
+	li {
+		margin: 20px 0;
+		border-bottom: 1px dashed $dark-color;
+	}
+
+	form {
+		height: 400px;
+		margin: -4px;
+		z-index: 1;
+
+		overflow: hidden;
+
+		background-color: rgba(248, 255, 219, 1);
+		
+		border: solid $dark-color 4px;
+		border-top: dotted 4px $dark-color;
+		border-radius: 5px;
+		
+		opacity: 1;
+
+		-moz-transition: all 0.5s ease;
+  		-o-transition: all 0.5s ease;
+ 		-ms-transition: all 0.5s ease;
+ 		-webkit-transition: all 0.5s ease;
+  
+		transition: all 0.5s ease;
+
+		h3 {
+			padding: 0;
+			margin: 0;
+			margin-top: 20px;
+
+			font-size: 1.6em;
+			font-family: 'Amatic SC', cursive;
+		}
+
+		label {
+			width: 100px;
+			padding: 0;
+			margin: 0;
+			margin-bottom: -15px;
+			margin-left: 10%;
+
+			text-align: left;
+			display: block;
+
+			font-size: 0.6em;
+		}
+
+		input {
+			width: 80%;
+			height: 50px;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			
+			display: inline-block;
+
+			border-radius: 5px;
+
+			font-size: 0.75em;
+			font-family: serif;
+		}
+
+		#submit {
+			height: 55px;
+			margin: 10px;
+			margin-top: 20px;
+			width: 80%;
+
+			border-style: none; 
+			border-radius: 5px;
+
+			background-color: $pop-accent;
+			color: $light-color;
+
+			font-size: 1em;
+			font-family: serif;
+		}
+	}
+
+	//for hiding the form
+	.is_hidden {
+		height: 0;
+		opacity: 0;
+	}
+
+}
+
+.credits {
+	padding: 10px;
+	bottom: 0;
+
+	font-size: 0.5em;
+
+	background-color: $light-color;
+	border: solid 1px $dark-color;
+
+	a {
+		color: $pop-accent;
+	}
+}
+
+@include respond-to(medium-screens) {
+
+	.salad_container {
+		width: 100%;
+		padding-left: 20px;
+
+		position: relative;
+
+		flex-flow: row;
+	  	flex-wrap: wrap;
+	  	align-items: flex-start;
+	  	justify-content: space-around;
+
+	} 
+
+	.salad_block {
+		width: 45%;
+		vertical-align: top;
+
+		li {
+			font-size: 0.75em;
+		}
+		
+		form {
+			height: 360px;
+			margin-bottom: 0;
+
+			position: relative;
+
+			h3 {
+				font-size: 1em;
+			}
+
+			label {
+				font-size: 0.5em;
+			}
+
+			#submit {
+				font-size: 0.75em;
+			}
+		}
+
+	}
+}
+
+
+@include respond-to(wide-screens) {
+	.salad_container {
+		width: 100%;
+		padding-left: 20px;
+		padding-bottom: 350px;
+
+		position: relative;
+
+	  	flex-flow: row;
+	  	flex-wrap: wrap;
+	  	align-items: flex-start;
+	  	
+	}
+
+	.salad_block {
+		width: 31%;
+		margin: 10px;
+		padding: 0;
+
+		vertical-align: top;
+		align-self:stretch;
+
+
+		ul {
+			margin: 10%;
+		}
+
+		li {
+			padding: 0;
+
+			font-size: 0.7em;
+		}
+
+		form {
+			margin-bottom: 10px;
+			position: absolute;
+			height: 350px;
+
+			h3 {
+				font-size: 1em;
+			}
+
+			label {
+				font-size: 0.5em;
+			}
+
+			input {
+				height: 40px;
+			}
+			
+			#submit {
+				font-size: 0.75em;
+			}
+		}
+	}
+}

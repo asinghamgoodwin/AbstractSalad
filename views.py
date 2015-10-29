@@ -1,3 +1,4 @@
+from flask import render_template
 from app import app, manager
 
 import json
@@ -5,5 +6,5 @@ import json
 
 @app.route('/')
 def index():
-    return "Hello, World"
+    return render_template('index.html')
 
